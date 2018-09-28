@@ -1,0 +1,15 @@
+dirty:
+  image:
+    name: alpine/git
+    entrypoint: [""]
+  script:
+    - chown -R 1000:1000 .
+    - git diff-index --exit-code HEAD test
+
+clean:
+  image:
+    name: alpine/git
+    entrypoint: [""]
+  script:
+    - chown -R 1000:1000 .
+    - git status && git diff-index --exit-code HEAD test
